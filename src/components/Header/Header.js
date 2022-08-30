@@ -7,8 +7,8 @@ const Header = () => {
   return (
     <header sx={{ bg: "backgroundSecondary" }}>
       <h1 className="logo-text" sx={{ color: "text" }}>
-        <img src={require('../../assets/logo.svg')} alt="logo" />
-        smart irrigation
+        <img className="logo-image" src={require('../../assets/logo_MW.png')} alt="logo" />
+        HP Glacier Ver. 3.0
       </h1>
       <ThemePicker />
     </header>

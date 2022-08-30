@@ -19,3 +19,8 @@ header {
     align-items: center;
     align-content: center;
 }
+
+.logo-image {
+    height: fit-content;
+    width: 9%;
+  }
