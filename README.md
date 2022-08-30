@@ -31,13 +31,16 @@ The app contains the following features:
 
 | Name  | Anmount | Description |
 | ------------- | ------------- | ------------- |
-| [NodeMCU ESP8266](https://amzn.to/2BOPmJ5)  | 1 - n  | Wifi module for reading capacities and sending them to the backend (Raspi)|
-| [Raspberry Pi Zero](https://amzn.to/3h53OwG)  | 1  | Running the whole software and triggering the pump(s) |
-| [Raspberry Pi SD Card](https://amzn.to/3h8qbBg)  | 1  | This is the data memory for the raspberry pi  |
-| [Relay](https://amzn.to/2XJnWwz)  | 1 - n  | To close or open the pump circuit on signal  from the raspi|
-| [Capacitive Soil Moisture Sensors](https://amzn.to/3haEUf2)  | 1-n  | To measure the soil moisture. Capacitive sensors do not dissolve. Never use electrodical humidity sensors, as they wear out very quickly |
-| [Pump](https://amzn.to/2UrRtsC)  | 1 - n  | Theoretically any pump can be used, as it is controlled by a separate power supply and the relay |
-| [Aquarium tube and irrigation nozzles](https://amzn.to/3cRWPUI)  | -  | Water transfer to the plants and to distribute the water on the earth |
+| [CHEAP ALL IN ONE OFFER](https://amzn.to/39jLexe)  | 1 - n  | pump, tube, capacity sensor and relay |
+| [NodeMCU ESP8266](https://amzn.to/3dh7IPR)  | 1 - n  | Wifi module for reading capacities and sending them to the backend (Raspi)|
+| [Raspberry Pi Zero](https://amzn.to/2NeY05X)  | 1  | Running the whole software and triggering the pump(s) |
+| [Raspberry Pi SD Card](https://amzn.to/3hLghpt)  | 1  | This is the data memory for the raspberry pi  |
+| [Relay](https://amzn.to/2YgcvNt)  | 1 - n  | To close or open the pump circuit on signal  from the raspi|
+| [Capacitive Soil Moisture Sensors](https://amzn.to/3dh9PTU)  | 1-n  | To measure the soil moisture. Capacitive sensors do not dissolve. Never use electrodical humidity sensors, as they wear out very quickly |
+| [Pump](https://amzn.to/2WO8Zsf)  | 1 - n  | Theoretically any pump can be used, as it is controlled by a separate power supply and the relay |
+| [Aquarium tube and irrigation nozzles](https://amzn.to/3153W9I)  | -  | Water transfer to the plants and to distribute the water on the earth |
+
+*all product links are also affiliate links to exactly the same products I bought for the system. If you order via the link, I will receive a tiny commission.
 
 The "n" in the anmount is due to the number of pumps or different plants. For example, in a raised bed it is usually sufficient to have one pump and one sensor. However, if you have different potted plants, they all need to be watered separately and therefor you have to get one pump and sensor for each potted plant.
 
@@ -80,7 +83,7 @@ sudo pip3 install docker-compose
 Now you have to pass the ip address of your pi into the `REACT_APP_BACKEND_URL=http://<YOUR-RASPI-IP>:3000` environment variable in the docker-compose file:
 
 ```bash
-sudo nano docker-compose
+sudo nano docker-compose.yml
 ```
 
 You can find the ip with the command `ifconfig`. It should be something like *192.168.178.44*. You can save your input in the Nano editor with `ctr + x`, then type in `yes`, finally exit with `enter`.
@@ -173,6 +176,20 @@ sudo nano backend/.env
 Copy the following line into the editor in order to set the database connection:
 ```
 MONGO_DB="mongodb://localhost/irrigation"
+```
+In order to install all dependencies in the frontend and backend, you need to run the following 
+```bash
+npm install
+cd backend
+npm install
+```
+
+If everything is installed, you are able to start the frontend and backend separately 
+```bash
+npm run build
+npm start &
+cd backend 
+npm start &
 ```
 
 <a name="usage"></a>
